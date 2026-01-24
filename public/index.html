@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudAnonChat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Экран ввода профиля -->
+    <div id="profileScreen" class="screen active">
+        <div class="container">
+            <h1>🌥️ CloudAnonChat</h1>
+            <div class="form-group">
+                <input type="text" id="nameInput" placeholder="Ваше имя" maxlength="20">
+            </div>
+            <div class="form-group">
+                <input type="number" id="ageInput" placeholder="Возраст" min="12" max="100">
+            </div>
+            <div class="gender-select">
+                <button class="gender-btn active" data-gender="male">👨 Мужчина</button>
+                <button class="gender-btn" data-gender="female">👩 Женщина</button>
+            </div>
+            <button id="nextBtn" class="primary-btn" disabled>Далее</button>
+        </div>
+    </div>
+
+    <!-- Экран поиска -->
+    <div id="searchScreen" class="screen">
+        <div class="container">
+            <h2>Кого искать?</h2>
+            <div class="filter-grid">
+                <button class="filter-btn" data-filter="12-16:female">
+                    👩 12-16 лет
+                </button>
+                <button class="filter-btn" data-filter="12-16:male">
+                    👨 12-16 лет
+                </button>
+                <button class="filter-btn" data-filter="18-26:female">
+                    👩 18-26 лет
+                </button>
+                <button class="filter-btn" data-filter="18-26:male">
+                    👨 18-26 лет
+                </button>
+                <button class="filter-btn" data-filter="26-35:female">
+                    👩 26-35 лет
+                </button>
+                <button class="filter-btn" data-filter="26-35:male">
+                    👨 26-35 лет
+                </button>
+                <button class="filter-btn" data-filter="35+:female">
+                    👩 35+ лет
+                </button>
+                <button class="filter-btn" data-filter="35+:male">
+                    👨 35+ лет
+                </button>
+            </div>
+            <button id="backBtn" class="secondary-btn">Назад</button>
+        </div>
+    </div>
+
+    <!-- Экран чата -->
+    <div id="chatScreen" class="screen">
+        <div class="chat-header">
+            <div class="partner-info">
+                <span id="partnerName"></span>, <span id="partnerAge"></span>
+                <span id="partnerGender"></span>
+            </div>
+            <button id="endChatBtn" class="end-btn">Завершить</button>
+        </div>
+        <div class="messages-container" id="messagesContainer">
+            <div class="loading">Ищем собеседника...</div>
+        </div>
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Напишите сообщение...">
+            <button id="voiceBtn" class="voice-btn">🎤</button>
+            <button id="sendBtn" class="send-btn">Отправить</button>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
