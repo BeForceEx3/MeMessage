@@ -1,0 +1,11 @@
+bind = "0.0.0.0:$PORT"
+workers = 1
+worker_class = "gevent"
+worker_connections = 1000
+timeout = 120
+keepalive = 5
+max_requests = 1000
+max_requests_jitter = 100
+loglevel = "info"
+accesslog = "-"
+errorlog = "-"
